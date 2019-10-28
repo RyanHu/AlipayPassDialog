@@ -1,4 +1,4 @@
-package com.lzj.pass;
+package com.ryan.pass;
 
 import org.junit.Test;
 

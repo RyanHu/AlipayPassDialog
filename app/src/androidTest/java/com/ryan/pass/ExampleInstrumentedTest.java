@@ -1,4 +1,4 @@
-package com.lzj.pass.dialog;
+package com.ryan.pass;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.lzj.pass.dialog.test", appContext.getPackageName());
+        assertEquals("com.lzj.pass", appContext.getPackageName());
     }
 }

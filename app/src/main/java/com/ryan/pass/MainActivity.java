@@ -1,4 +1,4 @@
-package com.lzj.pass;
+package com.ryan.pass;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.lzj.pass.dialog.PayPassDialog;
-import com.lzj.pass.dialog.PayPassView;
+import com.ryan.pass.dialog.PayPassDialog;
+import com.ryan.pass.dialog.PayPassView;
 
 /**
  *  参考Demo
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPassFinish(String passContent) {
                 //6位输入完成回调
-                showShort("输入完成回调");
+                showShort("输入完成回调1");
             }
             @Override
             public void onPayClose() {

@@ -1,4 +1,4 @@
-package com.lzj.pass.dialog;
+package com.ryan.pass.dialog;
 
 import org.junit.Test;
 
