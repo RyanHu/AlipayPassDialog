@@ -177,6 +177,7 @@ public class PayPassView extends RelativeLayout {
                 @Override
                 public void onClick(View v) {
                     if (position < 11 &&position!=9) {//0-9按钮
+                        vibrate();
                         if(strPass.length()==6){
                             return;
                         }
@@ -184,7 +185,6 @@ public class PayPassView extends RelativeLayout {
                             strPass=strPass+listNumber.get(position);//得到当前数字并累加
                             mTvPass[strPass.length()-1].setText("*"); //设置界面*
                             mPayClickListener.onPassInput(String.valueOf(listNumber.get(position)));
-                            vibrate();
                             //输入完成
                             if(strPass.length()==6){
                                 mPayClickListener.onPassFinish(strPass);//请求服务器验证密码
@@ -192,9 +192,9 @@ public class PayPassView extends RelativeLayout {
                         }
                     }
                     else if(position == 11) {//删除
+                        vibrate();
                         if(strPass.length()>0){
                             mPayClickListener.onPassInput(String.valueOf(listNumber.get(position)));
-                            vibrate();
                             mTvPass[strPass.length()-1].setText("");//去掉界面*
                             strPass=strPass.substring(0,strPass.length()-1);//删除一位
                         }
