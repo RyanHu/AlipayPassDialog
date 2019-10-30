@@ -23,9 +23,8 @@ Usage
 --
 ##### Gradle:
 ```groovy
-implementation 'com.github.lzjin:AlipayPassDialog:2.0'   
+implementation 'cn.com.huhuwang:paypass:1.4'
 ```
-## 历史版本最底部
 Demo
 --
 ##### Java:
@@ -88,12 +87,6 @@ Demo
         });
     }
 ```
-#### v1.1
-    优化更新
- * 修复部分手机兼容问题
- * demo增加功能
- #### v2.0
-     优化更新
-  * 优化界面适配问题
-  * 增加Demo演示代码
+
+
 
