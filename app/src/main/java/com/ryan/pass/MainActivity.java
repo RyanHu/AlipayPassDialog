@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void payDialog() {
         final PayPassDialog dialog=new PayPassDialog(this);
+        dialog.getPayViewPass().setHintText("设置支付密码");
+        dialog.getPayViewPass().setCloseImgView(R.drawable.ic_arrow_back_black_24dp);
+        dialog.getPayViewPass().setForgetText("");
           dialog.getPayViewPass()
                 .setPayClickListener(new PayPassView.OnPayClickListener() {
                     @Override
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onPayClose() {
                         dialog.dismiss();
+                        showShort("关闭回调");
                         //关闭回调
                     }
                     @Override
@@ -52,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
                         dialog.dismiss();
                         //点击忘记密码回调
                         showShort("忘记密码回调");
+                    }
+
+                    @Override
+                    public void onPassInput(String s) {
+
                     }
                 });
     }
@@ -74,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPassFinish(String passContent) {
                 //6位输入完成回调
-                showShort("输入完成回调1");
+                showShort("输入完成回调");
             }
             @Override
             public void onPayClose() {
@@ -86,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
                 //忘记密码回调
                 showShort("忘记密码回调");
+            }
+
+            @Override
+            public void onPassInput(String s) {
+
             }
         });
     }

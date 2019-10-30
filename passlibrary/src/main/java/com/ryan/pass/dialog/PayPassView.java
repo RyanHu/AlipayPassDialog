@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -38,10 +39,11 @@ public class PayPassView extends RelativeLayout {
     /**
      * 按钮对外接口
      */
-    public static interface OnPayClickListener {
+    public interface OnPayClickListener {
         void onPassFinish(String passContent);
         void onPayClose();
         void onPayForget();
+        void onPassInput(String s);
     }
     private OnPayClickListener mPayClickListener;
     public void setPayClickListener(OnPayClickListener listener) {
@@ -142,6 +144,7 @@ public class PayPassView extends RelativeLayout {
             if (position == 9) {
                 holder.btnNumber.setText("");
                 holder.btnNumber.setBackgroundColor(mContext.getResources().getColor(R.color.graye3));
+                return convertView;
             }
             if (position == 11) {
                 holder.btnNumber.setText("");
@@ -180,6 +183,8 @@ public class PayPassView extends RelativeLayout {
                         else {
                             strPass=strPass+listNumber.get(position);//得到当前数字并累加
                             mTvPass[strPass.length()-1].setText("*"); //设置界面*
+                            mPayClickListener.onPassInput(String.valueOf(listNumber.get(position)));
+                            vibrate();
                             //输入完成
                             if(strPass.length()==6){
                                 mPayClickListener.onPassFinish(strPass);//请求服务器验证密码
@@ -188,6 +193,8 @@ public class PayPassView extends RelativeLayout {
                     }
                     else if(position == 11) {//删除
                         if(strPass.length()>0){
+                            mPayClickListener.onPassInput(String.valueOf(listNumber.get(position)));
+                            vibrate();
                             mTvPass[strPass.length()-1].setText("");//去掉界面*
                             strPass=strPass.substring(0,strPass.length()-1);//删除一位
                         }
@@ -274,5 +281,10 @@ public class PayPassView extends RelativeLayout {
         for(int i=0;i<6;i++){
             mTvPass[i].setText("");
         }
+    }
+
+    private void vibrate(){
+        Vibrator vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(50);
     }
 }

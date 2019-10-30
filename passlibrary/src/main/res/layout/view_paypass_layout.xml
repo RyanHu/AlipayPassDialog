@@ -32,20 +32,14 @@
                 android:textColor="@color/black"
                 android:text="请输入支付密码"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/gray_gb"/>
-
         </RelativeLayout>
         <!--==============pass=================-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/payview_stroke_gray_shape"

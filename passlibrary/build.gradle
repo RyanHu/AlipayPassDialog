@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
 android {
 
     compileSdkVersion 28
@@ -30,23 +29,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+apply from:'publish.gradle'
 
-bintray {
-    user = 'ryanhu'
-    key = 'bee8aa952878ce7fceea144b28efd9655937a296'
-    pkg {
-        repo = 'PayementPasswordHelper'
-        name = 'gradle-project'
-        userOrg = 'bintray_user'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
-    }
-}
-//项目主页
-def siteUrl = 'https://github.com/shishaoyan/FireworksView'
-//项目的git地址
-def gitUrl = 'https://github.com/shishaoyan/FireworksView.git'
-//发布到JCenter上的项目名字
-def libName = "FireworksView"
-def group = "com.ssy"
-def apiKey = "bee8aa952878ce7fceea144b28efd9655937a296"
