@@ -1,9 +1,15 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-version '1.4'
+//配置
 group 'cn.com.huhuwang'
-def aid= 'paypass'
+version '1.6'
+def versionDesc ='sdk最小版本降低为16'
+def aid ='paypass'
+def gitUrl ='https://github.com/RyanHu/AlipayPassDialog.git'
+def repoName = 'PayementPasswordHelper'
+def projectDesc = '仿支付宝密码键盘'
+
 
 task sourcesJar(type: Jar) {
     classifier = 'sources'
@@ -59,17 +65,17 @@ bintray {
     publications = ['Production']
     override = true
     pkg {
-        repo = 'PayementPasswordHelper'
+        repo = repoName
         name = aid
-        description = "仿支付宝密码键盘"
+        description = projectDesc
         publish = true
         publicDownloadNumbers = true
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/RyanHu/AlipayPassDialog.git'
+        vcsUrl = gitUrl
         dryRun = false
         version {
             name = this.version
-            desc = "init publish ${this.version}"
+            desc = "-- ${this.version}:"+versionDesc
             released = new Date()
             vcsTag = this.version
         }
